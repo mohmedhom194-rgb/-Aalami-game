@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عالمي</title>
+<style>
+body{margin:0;background:#91d6ed;font-family:Arial;text-align:center;overflow:hidden}
+#city{height:70vh;background:linear-gradient(#83d1ed 45%,#7fbd78 45%);position:relative}
+.road{position:absolute;bottom:0;left:25%;width:50%;height:60%;background:#646b73;transform:perspective(150px) rotateX(5deg)}
+.house{position:absolute;bottom:25%;width:24%;height:32%;background:#f2c69b;border:3px solid #a16d53}
+.one{left:3%}.two{right:3%;background:#c4d6d4}
+.person{position:absolute;bottom:8%;left:calc(50% - 20px);font-size:65px}
+button{font-size:22px;padding:12px;margin:5px;border:0;border-radius:12px;background:#245a78;color:white}
+</style>
+<h2>🌆 عالمي</h2>
+<div id="city">
+<div class="house one">☕<br>CAFE</div>
+<div class="house two">🏠<br>HOME</div>
+<div class="road"></div>
+<div class="person" id="person">🧍</div>
+</div>
+<button onclick="move(-25)">⬅️</button>
+<button onclick="move(0)">⬆️</button>
+<button onclick="move(25)">➡️</button>
+<script>
+let x=0;
+function move(n){
+if(n===0){document.getElementById('person').style.bottom='18%';}
+else{
+x=Math.max(-100,Math.min(100,x+n));
+document.getElementById('person').style.left=`calc(50% - 20px + ${x}px)`;
+document.getElementById('person').style.bottom='8%';
+}}
+</script>
+</html>
